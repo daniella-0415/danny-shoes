@@ -1,0 +1,20 @@
+.payment-container {
+    padding: 40px;
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .payment-btn {
+    padding: 12px 20px;
+    margin: 10px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .payment-btn:hover {
+    opacity: 0.8;
+  }
+  

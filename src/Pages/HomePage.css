@@ -1,0 +1,187 @@
+/* Main container */
+.homepage-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
+}
+
+/* Hero section */
+.hero {
+  height: 70vh;
+  background: url("https://images.unsplash.com/photo-1549298916-f52d724204b4?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.shop-button {
+  padding: 12px 25px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.shop-button:hover {
+  background: #e63946;
+}
+
+/* Product section */
+h2 {
+  text-align: center;
+  margin: 50px 0 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Product grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0 40px 60px;
+}
+
+/* Individual product card */
+.product-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-8px);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+  color: #222;
+}
+
+.product-item p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Likes */
+.likes button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.likes button:first-child {
+  background: #e0f7fa;
+  color: #00796b;
+}
+
+.likes button:first-child:hover {
+  background: #b2ebf2;
+}
+
+.likes button:last-child {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.likes button:last-child:hover {
+  background: #ffcdd2;
+}
+
+.likes p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Wishlist button */
+.wishlist button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.wishlist button:hover {
+  background: #111;
+  color: white;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

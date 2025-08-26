@@ -1,0 +1,85 @@
+.product-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.product-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.wishlist-btn {
+  background-color: #ff4081;
+  color: white;
+}
+
+.wishlist-btn:hover {
+  background-color: #e00064;
+}
+
+.likes button {
+  background: #f1f1f1;
+  color: #333;
+  margin-right: 5px;
+}
+
+.likes span {
+  margin-left: 5px;
+  font-weight: bold;
+}

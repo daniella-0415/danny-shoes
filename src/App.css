@@ -1,0 +1,188 @@
+/* App.css */
+
+/* Light Mode (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #2c3e50;
+  --card-bg: #f4f6f7;
+  --button-bg: #3498db;
+  --button-text: #ffffff;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #ecf0f1;
+  --card-bg: #2c3e50;
+  --button-bg: #9b59b6;
+  --button-text: #ffffff;
+}
+
+/* Apply to body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  /* border: 1px solid red; */
+}
+
+.header {
+  text-align: center;
+  color: #333;
+}
+
+.message {
+  color: red;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products {
+  margin-top: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.img {
+  width: 300px;
+  height: 40vh;
+  object-fit: cover;
+}
+/* General container */
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #222;   /* Dark background */
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  border-radius: 8px;
+}
+
+.navbar a {
+  color: #fff;              /* White text */
+  text-decoration: none;    /* Remove underline */
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #ff9800;           /* Orange hover color */
+  transform: scale(1.1);    /* Slight zoom on hover */
+}
+
+/* Active link style (optional) */
+.navbar a:active {
+  color: #4caf50;           /* Green when clicked */
+}
+
+/* Page spacing */
+.container {
+  margin-top: 20px;
+}
