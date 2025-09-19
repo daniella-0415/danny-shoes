@@ -5,7 +5,12 @@ import "./Checkout.css";
 
 export default function Checkout() {
   const { cart } = useCart();
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); // include quantity
+
+  // Ensure price is a number (parseFloat handles strings like "2000" or "2000.50")
+  const total = cart.reduce(
+    (sum, item) => sum + parseFloat(item.price) * (item.quantity || 1),
+    0
+  );
 
   return (
     <div className="checkout-page" style={{ padding: "20px" }}>
@@ -14,11 +19,15 @@ export default function Checkout() {
       {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        cart.map((item) => (
-          <div key={item.id} style={{ marginBottom: "10px" }}>
-            {item.name} - ${item.price} x {item.quantity} = ${item.price * item.quantity}
-          </div>
-        ))
+        cart.map((item) => {
+          const price = parseFloat(item.price) || 0;
+          const qty = item.quantity || 1;
+          return (
+            <div key={item.id} style={{ marginBottom: "10px" }}>
+              {item.name} - ${price} x {qty} = ${price * qty}
+            </div>
+          );
+        })
       )}
 
       <h3>Total: ${total}</h3>

@@ -108,12 +108,17 @@ const Homepage = () => {
         )}
       </div>
 
+      
+
       {/*  Footer */}
       <footer className="footer">
         <p>© {new Date().getFullYear()} DANNY'S SHOES. All rights reserved.</p>
         <p>Made with ❤️ and React</p>
       </footer>
     </div>
+
+
+
   );
 };
 
