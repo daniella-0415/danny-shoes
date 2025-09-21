@@ -23,7 +23,7 @@ export default function ProductDetail() {
 
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/products`);
+        const res = await fetch(`http://54.82.9.35:3000/products`);
         if (!res.ok) {
           if (res.status === 404) throw new Error("Product not found");
           if (res.status === 400) throw new Error("Invalid product ID");

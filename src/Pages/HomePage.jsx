@@ -12,7 +12,7 @@ const Homepage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/products");
+      const response = await fetch("http://54.82.9.35:3000/products");
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
 

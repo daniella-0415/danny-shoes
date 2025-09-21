@@ -9,7 +9,7 @@ const WishlistPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:3000/products");
+        const res = await fetch("http:API_BASE_URL:3000/products");
         const data = await res.json();
         setProducts(data);
       } catch (err) {
