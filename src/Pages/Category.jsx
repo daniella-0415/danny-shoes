@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Category.css";
 
 export default function Category() {
-  const categories = ["Sneakers", "Boots", "Sandals", "Sportswear"];
+  const categories = ["Sneakers", "Boots", "Sandals", "Heels"];
 
   return (
     <div className="category-container">
