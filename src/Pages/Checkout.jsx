@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";        // ✅ import Link
 import "./Checkout.css";
 
 export default function Checkout() {
-  const { cart } = useCart();
+  const { cart } = useCart ();
 
   // Ensure price is a number (parseFloat handles strings like "2000" or "2000.50")
   const total = cart.reduce(
