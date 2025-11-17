@@ -1,187 +1,208 @@
-/* Main container */
+/* ===== General Layout ===== */
 .homepage-container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #fafafa;
   margin: 0;
-  background: #fafafa;
-  color: #333;
+  padding: 0;
 }
 
-/* Hero section */
-.hero {
-  height: 70vh;
-  background: url("https://images.unsplash.com/photo-1549298916-f52d724204b4?auto=format&fit=crop&w=1600&q=80")
-    no-repeat center center/cover;
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #111;
+  color: white;
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 80vh;
+  background: url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
   position: relative;
 }
 
-.hero::after {
+.hero::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 600px;
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 25px;
+  margin-bottom: 2rem;
 }
 
 .shop-button {
-  padding: 12px 25px;
-  background: #111;
-  color: #fff;
-  font-size: 1rem;
+  background-color: #ff4c29;
+  color: white;
   border: none;
-  border-radius: 6px;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .shop-button:hover {
-  background: #e63946;
+  background-color: #ff2e00;
 }
 
-/* Product section */
+/* ===== Products Section ===== */
 h2 {
   text-align: center;
-  margin: 50px 0 20px;
+  margin-top: 3rem;
   font-size: 2rem;
   font-weight: 600;
-  color: #222;
+  color: #333;
 }
 
-.error-message {
-  text-align: center;
-  color: red;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* Product grid */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 0 40px 60px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 3rem;
+  justify-items: center;
 }
 
-/* Individual product card */
 .product-item {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  transition: transform 0.3s ease;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-item:hover {
   transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-image {
   width: 100%;
-  height: 220px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
 }
 
 .product-item h3 {
-  font-size: 1.2rem;
-  margin: 10px 0 5px;
+  margin: 1rem 0 0.5rem;
+  font-size: 1.3rem;
   color: #222;
 }
 
 .product-item p {
+  padding: 0 1rem;
   font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 15px;
+  color: #555;
 }
 
-/* Likes */
-.likes button {
-  margin: 0 5px;
-  padding: 6px 12px;
+/* ===== Likes and Wishlist ===== */
+.likes,
+.wishlist {
+  margin: 0.5rem 0;
+}
+
+.likes button,
+.wishlist button {
+  margin: 0.3rem;
+  background-color: #ff4c29;
+  color: white;
   border: none;
-  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
-}
-
-.likes button:first-child {
-  background: #e0f7fa;
-  color: #00796b;
-}
-
-.likes button:first-child:hover {
-  background: #b2ebf2;
-}
-
-.likes button:last-child {
-  background: #ffebee;
-  color: #c62828;
-}
-
-.likes button:last-child:hover {
-  background: #ffcdd2;
-}
-
-.likes p {
-  margin-top: 10px;
-  font-weight: 500;
+  transition: background 0.3s ease;
   font-size: 0.9rem;
 }
 
-/* Wishlist button */
-.wishlist button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #f5f5f5;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
+.likes button:hover,
 .wishlist button:hover {
-  background: #111;
-  color: white;
+  background-color: #ff2e00;
 }
 
-/* Fade-in animation */
+.likes p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  background-color: #111;
+  color: white;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0.3rem 0;
+}
+
+/* ===== Animations ===== */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 0.6s ease forwards;
+  transform: translateY(15px);
+  animation: fadeIn 0.6s forwards;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .product-list {
+    padding: 1rem;
   }
 }

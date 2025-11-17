@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Signin() {
-  const [form, setForm] = useState({ email: "", password: "" });
+export default function Signup() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,24 +22,24 @@ export default function Signin() {
     setMessage("");
 
     try {
-      // ✅ Use relative URL — forwarded by Vite proxy to backend
+      // ✅ Use relative path to trigger Vite proxy
       const response = await fetch("http://localhost:3000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
-      // ✅ Safely parse only if not empty
+      // ✅ Safe parsing in case of empty response
       const text = await response.text();
       const data = text ? JSON.parse(text) : {};
 
       setLoading(false);
 
       if (response.ok) {
-        setMessage("✅ Login successful!");
-        setTimeout(() => navigate("/"), 1000);
+        setMessage("✅ Signup successful!");
+        setTimeout(() => navigate("/signin"), 1200); // Redirect to Signin page
       } else {
-        setMessage(data.error || "❌ Login failed");
+        setMessage(data.error || "❌ Signup failed");
       }
     } catch (err) {
       setLoading(false);
@@ -44,7 +49,7 @@ export default function Signin() {
 
   return (
     <div
-      className="signin-container"
+      className="signup-container"
       style={{
         textAlign: "center",
         marginTop: "60px",
@@ -57,12 +62,32 @@ export default function Signin() {
           padding: "30px",
           border: "1px solid #ccc",
           borderRadius: "12px",
-          width: "300px",
+          width: "320px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
         }}
       >
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
 
+        <input
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          value={form.firstName}
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+        />
+        <br />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={form.lastName}
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+        />
+        <br />
         <input
           type="email"
           name="email"
@@ -92,12 +117,12 @@ export default function Signin() {
             padding: "8px",
             border: "none",
             borderRadius: "6px",
-            background: "#007bff",
+            background: "#28a745",
             color: "white",
             cursor: "pointer",
           }}
         >
-          {loading ? "Signing in..." : "Sign In"}
+          {loading ? "Signing up..." : "Sign Up"}
         </button>
 
         {message && <p style={{ marginTop: "10px" }}>{message}</p>}
