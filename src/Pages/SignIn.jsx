@@ -17,14 +17,14 @@ export default function Signin() {
     setMessage("");
 
     try {
-      const API = "http://13.51.6.193:3000";  // ✅ EC2 backend
-
-      const response = await fetch(`${API}/signup`, {
+      // ✅ Use relative URL — forwarded by Vite proxy to backend
+      const response = await fetch("http://localhost:3000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
+      // ✅ Safely parse only if not empty
       const text = await response.text();
       const data = text ? JSON.parse(text) : {};
 
@@ -45,7 +45,10 @@ export default function Signin() {
   return (
     <div
       className="signin-container"
-      style={{ textAlign: "center", marginTop: "60px" }}
+      style={{
+        textAlign: "center",
+        marginTop: "60px",
+      }}
     >
       <form
         onSubmit={handleSubmit}
@@ -70,7 +73,6 @@ export default function Signin() {
           style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
         />
         <br />
-
         <input
           type="password"
           name="password"
