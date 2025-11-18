@@ -39,7 +39,7 @@ export default function Signup() {
         setMessage("✅ Signup successful!");
         setTimeout(() => navigate("/signin"), 1200); // Redirect to Signin page
       } else {
-        setMessage(data.error || "❌ Signup failed");
+        setMessage(data.error || " Signup failed");
       }
     } catch (err) {
       setLoading(false);

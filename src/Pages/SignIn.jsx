@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -13,51 +17,43 @@ export default function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setMessage("");
+    setLoading(true);
 
     try {
-      // ✅ Use relative URL — forwarded by Vite proxy to backend
-      const response = await fetch("http://localhost:3000/signup", {
+      const res = await fetch("/api/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
-      // ✅ Safely parse only if not empty
-      const text = await response.text();
+      const text = await res.text();
       const data = text ? JSON.parse(text) : {};
 
       setLoading(false);
 
-      if (response.ok) {
+      if (res.ok) {
         setMessage("✅ Login successful!");
         setTimeout(() => navigate("/"), 1000);
       } else {
-        setMessage(data.error || "❌ Login failed");
+        setMessage(data.error || "❌ Invalid credentials");
       }
     } catch (err) {
       setLoading(false);
-      setMessage("⚠️ Error: " + err.message);
+      setMessage("⚠️ " + err.message);
     }
   };
 
   return (
-    <div
-      className="signin-container"
-      style={{
-        textAlign: "center",
-        marginTop: "60px",
-      }}
-    >
+    <div style={{ textAlign: "center", marginTop: "60px" }}>
       <form
         onSubmit={handleSubmit}
         style={{
           display: "inline-block",
           padding: "30px",
+          width: "320px",
           border: "1px solid #ccc",
           borderRadius: "12px",
-          width: "300px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
         }}
       >
@@ -70,9 +66,9 @@ export default function Signin() {
           value={form.email}
           onChange={handleChange}
           required
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
         />
-        <br />
+
         <input
           type="password"
           name="password"
@@ -80,19 +76,18 @@ export default function Signin() {
           value={form.password}
           onChange={handleChange}
           required
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
+          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
         />
-        <br />
 
         <button
           type="submit"
           disabled={loading}
           style={{
             width: "100%",
-            padding: "8px",
-            border: "none",
+            padding: "10px",
             borderRadius: "6px",
-            background: "#007bff",
+            border: "none",
+            background: "#1a73e8",
             color: "white",
             cursor: "pointer",
           }}
