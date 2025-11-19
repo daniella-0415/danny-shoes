@@ -179,13 +179,13 @@ const Homepage = () => {
               <p>{product.likes} likes</p>
             </div>
 
-            <div className="wishlist">
+            {/* <div className="wishlist">
               <button onClick={() => toggleWishlist(product.id)}>
                 {wishlist.includes(product.id)
                   ? "❤️ Remove from Wishlist"
                   : "🤍 Add to Wishlist"}
               </button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

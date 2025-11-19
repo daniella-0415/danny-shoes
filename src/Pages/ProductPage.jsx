@@ -98,11 +98,11 @@ export default function ProductPage() {
               </div>
 
               {/* Wishlist */}
-              <div className="wishlist">
+              {/* <div className="wishlist">
                 <button onClick={() => handleWishlist(p.id)}>
                   {p.wishlist ? "💔 Remove from Wishlist" : "❤️ Add to Wishlist"}
                 </button>
-              </div>
+              </div> */}
             </div>
           );
         })}
