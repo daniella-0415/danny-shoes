@@ -96,7 +96,6 @@ export default function ProductPage() {
                 <button onClick={() => handleUnlike(p.id)}>👎 Unlike</button>
                 <p>{p.likes} likes</p>
               </div>
-
               {/* Wishlist */}
               {/* <div className="wishlist">
                 <button onClick={() => handleWishlist(p.id)}>
