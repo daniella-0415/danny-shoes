@@ -22,28 +22,41 @@ export default function Signup() {
     setMessage("");
 
     try {
-      // ✅ Use relative path to trigger Vite proxy
+      // Combine firstName and lastName into name for backend
+      const payload = {
+        name: `${form.firstName} ${form.lastName}`,
+        email: form.email,
+        password: form.password,
+      };
+
+      console.log("Sending payload:", payload);
+
+      // Use direct backend URL
       const response = await fetch("http://localhost:3000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
-      // ✅ Safe parsing in case of empty response
+      console.log("Response status:", response.status);
+
       const text = await response.text();
+      console.log("Response text:", text);
+
       const data = text ? JSON.parse(text) : {};
 
       setLoading(false);
 
       if (response.ok) {
         setMessage("✅ Signup successful!");
-        setTimeout(() => navigate("/signin"), 1200); // Redirect to Signin page
+        setTimeout(() => navigate("/signin"), 1200);
       } else {
-        setMessage(data.error || " Signup failed");
+        setMessage(data.message || `❌ ${text || "Signup failed"}`);
       }
     } catch (err) {
       setLoading(false);
       setMessage("⚠️ Error: " + err.message);
+      console.error("Fetch error:", err);
     }
   };
 
@@ -67,7 +80,6 @@ export default function Signup() {
         }}
       >
         <h2>Sign Up</h2>
-
         <input
           type="text"
           name="firstName"
@@ -108,7 +120,6 @@ export default function Signup() {
           style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
         />
         <br />
-
         <button
           type="submit"
           disabled={loading}
@@ -124,7 +135,6 @@ export default function Signup() {
         >
           {loading ? "Signing up..." : "Sign Up"}
         </button>
-
         {message && <p style={{ marginTop: "10px" }}>{message}</p>}
       </form>
     </div>

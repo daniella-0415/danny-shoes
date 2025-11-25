@@ -49,15 +49,15 @@ export default function App() {
               textAlign: "center",
             }}
           >
-            <Link to="/" style={linkStyle}>Sign Up</Link>
-            <Link to="/signin" style={linkStyle}>Sign In</Link>
-            <Link to="/home" style={linkStyle}>Home</Link>
+            <Link to="/" style={linkStyle}>Home</Link>
             <Link to="/category" style={linkStyle}>Category</Link>
             <Link to="/cart" style={linkStyle}>Cart</Link>
             {/* <Link to="/wishlist" style={linkStyle}>Wishlist</Link> */}
             <Link to="/checkout" style={linkStyle}>Checkout</Link>
             <Link to="/payment" style={linkStyle}>Payment</Link>
             <Link to="/order" style={linkStyle}>Order</Link>
+            <Link to="/signin" style={linkStyle}>Sign In</Link>
+            <Link to="/signup" style={linkStyle}>Sign Up</Link>
 
             <button
               onClick={toggleTheme}
@@ -78,11 +78,8 @@ export default function App() {
           {/* ✅ Routes */}
           <main style={{ padding: "20px" }}>
             <Routes>
-              {/* Default route is now Signup */}
-              <Route path="/" element={<Signup />} />
-              
               <Route
-                path="/home"
+                path="/"
                 element={
                   <Homepage
                     products={products}
@@ -111,6 +108,7 @@ export default function App() {
               <Route path="/payment" element={<Payment />} />
               <Route path="/order" element={<Order />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </main>
 

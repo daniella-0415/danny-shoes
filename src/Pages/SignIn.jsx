@@ -21,7 +21,7 @@ export default function Signin() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://13.61.148.109:3000/api/signin", {
+      const res = await fetch("http://localhost:3000/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
