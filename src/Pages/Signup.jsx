@@ -32,7 +32,7 @@ export default function Signup() {
       console.log("Sending payload:", payload);
 
       // Use direct backend URL
-      const response = await fetch("http://16.171.156.22:3000/api/users/signup", {
+      const response = await fetch("https://backend-08ey.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
